@@ -14,11 +14,11 @@
 
 # REGENIE = 1
 # VERBOSE = 1
-# NOWERROR = 1
+NOWERROR = 1
 # IGNORE_GIT = 1
 
 # TARGET = mame
-# SUBTARGET = tiny
+# SUBTARGET = pluto6
 # TOOLS = 1
 # EMULATOR = 1
 # TESTS = 1
@@ -38,11 +38,12 @@
 # USE_PCAP = 1
 # USE_QTDEBUG = 1
 # NO_X11 = 1
+# USE_WAYLAND = 1
 # NO_USE_XINPUT = 1
 # NO_USE_XINPUT_WII_LIGHTGUN_HACK = 1
 # FORCE_DRC_C_BACKEND = 1
 
-# DEBUG = 1
+DEBUG = 1
 # PROFILER = 1
 # SANITIZE =
 
@@ -105,7 +106,7 @@
 
 # QT_HOME = /usr/lib64/qt48/
 
-# SOURCES = src/mame/atari/asteroid.cpp,src/mame/cinematronics/cchasm.cpp
+SOURCES = src/mame/jpm/pluto6.cpp,src/devices/machine/mc68681.cpp,src/mame/jpm/pl6_fpga.cpp,src/mame/jpm/pl6_pic.cpp,src/devices/cpu/m68000/mcf5206e.cpp,src/devices/machine/i2cmem.cpp,src/emu/dirtc.cpp,src/devices/video/serialvfd.cpp,src/devices/machine/i2chle.cpp,src/devices/bus/rs232/rs232.cpp,src/devices/bus/rs232/pty.cpp,src/devices/bus/rs232/null_modem.cpp,src/emu/diserial.h,src/devices/machine/watchdog.cpp
 
 # SOURCEFILTER = mydrivers.flt
 

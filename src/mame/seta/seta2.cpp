@@ -809,7 +809,7 @@ void funcube_state::funcube_map(address_map &map)
 
 	map(0x00c00000, 0x00c002ff).rw(FUNC(funcube_state::nvram_r), FUNC(funcube_state::nvram_w)).umask32(0x00ff00ff);
 
-	map(0xf0000000, 0xf00001ff).rw("maincpu_onboard", FUNC(mcf5206e_peripheral_device::seta2_coldfire_regs_r), FUNC(mcf5206e_peripheral_device::seta2_coldfire_regs_w)); // technically this can be moved with MBAR
+	map(0xf0000000, 0xf00002ff).rw("maincpu", FUNC(mcf5206e_device::dev_r), FUNC(mcf5206e_device::dev_w)); // technically this can be moved with MBAR
 	map(0xffffe000, 0xffffffff).ram();    // SRAM
 }
 
@@ -830,7 +830,7 @@ void funcube_state::funcube2_map(address_map &map)
 
 	map(0x00c00000, 0x00c002ff).rw(FUNC(funcube_state::nvram_r), FUNC(funcube_state::nvram_w)).umask32(0x00ff00ff);
 
-	map(0xf0000000, 0xf00001ff).rw("maincpu_onboard", FUNC(mcf5206e_peripheral_device::seta2_coldfire_regs_r), FUNC(mcf5206e_peripheral_device::seta2_coldfire_regs_w)); // technically this can be moved with MBAR
+	map(0xf0000000, 0xf00002ff).rw("maincpu", FUNC(mcf5206e_device::dev_r), FUNC(mcf5206e_device::dev_w)); // technically this can be moved with MBAR
 	map(0xffffe000, 0xffffffff).ram();    // SRAM
 }
 
@@ -2471,7 +2471,7 @@ void funcube_state::funcube(machine_config &config)
 	m_sub->write_porta().set(FUNC(funcube_state::outputs_w));
 	m_sub->write_portb().set(FUNC(funcube_state::leds_w));
 
-	MCF5206E_PERIPHERAL(config, "maincpu_onboard", 0, m_maincpu);
+	//MCF5206E_PERIPHERAL(config, "maincpu_onboard", 0, m_maincpu);
 
 	FUNCUBE_TOUCHSCREEN(config, "touchscreen", 200).tx_cb().set(m_sub, FUNC(h8_device::sci_rx_w<1>));
 
